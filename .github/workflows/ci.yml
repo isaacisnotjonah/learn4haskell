@@ -1,31 +1,30 @@
 name: CI
 
-# Trigger the workflow on push or pull request, but only for the master branch
 on:
   pull_request:
+    types: [synchronize, opened, reopened]
   push:
-    branches: [master]
+    branches: [main]
 
 jobs:
   build:
     name: Build Learn4Haskell
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         cabal: ["3.2"]
-        ghc: ["8.10.2"]
+        ghc: ["8.10.4"]
 
     steps:
-    - uses: actions/checkout@v2
-      if: github.event.action == 'opened' || github.event.action == 'synchronize' || github.event.ref == 'refs/heads/master'
+    - uses: actions/checkout@v2.3.4
 
-    - uses: actions/setup-haskell@v1.1.2
+    - uses: haskell/actions/setup@v1.2.6
       name: Setup Haskell
       with:
         ghc-version: ${{ matrix.ghc }}
         cabal-version: ${{ matrix.cabal }}
 
-    - uses: actions/cache@v2.1.1
+    - uses: actions/cache@v2.1.6
       name: Cache ~/.cabal/store
       with:
         path: ~/.cabal/store
@@ -37,22 +36,21 @@ jobs:
 
   chapter1:
     name: Chapter One
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         cabal: ["3.2"]
-        ghc: ["8.10.2"]
+        ghc: ["8.10.4"]
     steps:
-    - uses: actions/checkout@v2
-      if: github.event.action == 'opened' || github.event.action == 'synchronize' || github.event.ref == 'refs/heads/master'
+    - uses: actions/checkout@v2.3.4
 
-    - uses: actions/setup-haskell@v1.1.2
+    - uses: haskell/actions/setup@v1.2.6
       name: Setup Haskell
       with:
         ghc-version: ${{ matrix.ghc }}
         cabal-version: ${{ matrix.cabal }}
 
-    - uses: actions/cache@v2.1.1
+    - uses: actions/cache@v2.1.6
       name: Cache ~/.cabal/store
       with:
         path: ~/.cabal/store
@@ -73,22 +71,21 @@ jobs:
 
   chapter2:
     name: Chapter Two
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         cabal: ["3.2"]
-        ghc: ["8.10.2"]
+        ghc: ["8.10.4"]
     steps:
-    - uses: actions/checkout@v2
-      if: github.event.action == 'opened' || github.event.action == 'synchronize' || github.event.ref == 'refs/heads/master'
+    - uses: actions/checkout@v2.3.4
 
-    - uses: actions/setup-haskell@v1.1.2
+    - uses: haskell/actions/setup@v1.2.6
       name: Setup Haskell
       with:
         ghc-version: ${{ matrix.ghc }}
         cabal-version: ${{ matrix.cabal }}
 
-    - uses: actions/cache@v2.1.1
+    - uses: actions/cache@v2.1.6
       name: Cache ~/.cabal/store
       with:
         path: ~/.cabal/store
@@ -109,22 +106,21 @@ jobs:
 
   chapter3:
     name: Chapter Three
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         cabal: ["3.2"]
-        ghc: ["8.10.2"]
+        ghc: ["8.10.4"]
     steps:
-    - uses: actions/checkout@v2
-      if: github.event.action == 'opened' || github.event.action == 'synchronize' || github.event.ref == 'refs/heads/master'
+    - uses: actions/checkout@v2.3.4
 
-    - uses: actions/setup-haskell@v1.1.2
+    - uses: haskell/actions/setup@v1.2.6
       name: Setup Haskell
       with:
         ghc-version: ${{ matrix.ghc }}
         cabal-version: ${{ matrix.cabal }}
 
-    - uses: actions/cache@v2.1.1
+    - uses: actions/cache@v2.1.6
       name: Cache ~/.cabal/store
       with:
         path: ~/.cabal/store
@@ -136,22 +132,21 @@ jobs:
 
   chapter4:
     name: Chapter Four
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         cabal: ["3.2"]
-        ghc: ["8.10.2"]
+        ghc: ["8.10.4"]
     steps:
-    - uses: actions/checkout@v2
-      if: github.event.action == 'opened' || github.event.action == 'synchronize' || github.event.ref == 'refs/heads/master'
+    - uses: actions/checkout@v2.3.4
 
-    - uses: actions/setup-haskell@v1.1.2
+    - uses: haskell/actions/setup@v1.2.6
       name: Setup Haskell
       with:
         ghc-version: ${{ matrix.ghc }}
         cabal-version: ${{ matrix.cabal }}
 
-    - uses: actions/cache@v2.1.1
+    - uses: actions/cache@v2.1.6
       name: Cache ~/.cabal/store
       with:
         path: ~/.cabal/store
